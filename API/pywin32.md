@@ -25,3 +25,16 @@
 
 ## Table对象Border方法的LineStyle属性枚举值
 1：wdLineStyleSingle(单实线)
+
+## 创建表格
+```python
+import win32com.client as win32
+word = win32.gencache.EnsureDispatch('Word.Application')
+word.Visible = True
+doc = word.Documents.Add()
+table = doc.Tables.Add(doc.Range(0, 0), 3, 3)
+```
+- 特性1：创建表格以后会自动添加回车符
+`doc.Range(0, 0)`
+`doc.Paragraphs(doc.Paragraphs.Count).Range`
+`doc.Paragraphs.Last.Range`
