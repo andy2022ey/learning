@@ -11,8 +11,29 @@ figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon
 ```
 一般情况下，我们不需要显示调用figure()函数，matplotlib会自动创建。只有当需要绘制多张图时，才需要显示调用该函数。属性设置只有在初次创建figure对象时才有效，之后再激活Figure对象时设置属性不会生效。
 
+## scatter
+绘制散点图。
+```python
+scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, *, plotnonfinite=False, data=None, **kwargs)
+- x：x轴数据。
+- y：y轴数据。
+- s：散点的大小。
+- c：散点的颜色。
+- marker：散点的形状。
+- cmap：散点的颜色映射。
+- norm：归一化。
+- vmin：最小值。
+- vmax：最大值。
+- alpha：散点的透明度。
+- linewidths：线宽。
+- verts：顶点。
+- edgecolors：散点边界的颜色。
+- plotnonfinite：是否绘制无穷值。
+- data：数据来源。
+```
+
 ## plot
-绘制折线图。
+绘制线性图形。
 ```python
 plot(*args, linestyle=None, linewidth=None, color=None, marker=None, markersize=None，label=None，scalex=True, scaley=True, data=None)
 - *args：x,y，可选，必须是可迭代对象。
@@ -93,9 +114,19 @@ yticks(ticks=None, labels=None, **kwargs)
 ```
 
 ## subplots
-创建一个新的Figure对象，并返回一个包含该Figure对象和Axes对象的元组。Axes即坐标轴，是一个独立的绘图区域。
+创建一个新的Figure对象，和Axes对象或Axes对象列表。Axes是Figure对象中的子图，默认只有一个子图。
+子图拥有pyplot中的所有方法，可以通过Axes对象调用。
 ```python
-subplots(dpi=100)
+fig, axs = subplots(nrows=1, ncols=1, sharex=False, sharey=False, squeeze=True, subplot_kw=None, gridspec_kw=None, dpi=100, **fig_kw)
+- nrows：子图的行数。
+- ncols：子图的列数。
+- sharex：是否共享x轴。
+- sharey：是否共享y轴。
+- squeeze：是否压缩子图。
+- subplot_kw：Axes对象的关键字参数。
+- gridspec_kw：GridSpec对象的关键字参数。
+- fig_kw：Figure对象的关键字参数。
+- dpi：分辨率。fig_kw的参数之一。
 ```
 ## Axes对象
 ### spines

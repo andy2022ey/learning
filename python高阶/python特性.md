@@ -9,3 +9,7 @@ __file__是当前文件的路径。即使当前文件被其他文件import，__f
 
 # 字典
 - 字典的键可以是空字符串，空字符串作为键，可以正常使用get方法获取值。
+
+# @property
+当被property装饰的方法出错，会抛出AttributeError异常，而不是TypeError异常。
+xxx object has no attribute 'myfunc' 
